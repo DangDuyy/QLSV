@@ -1,0 +1,284 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Data.SqlClient;
+using System.Drawing;
+using System.IO;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace QLSV
+{
+    public partial class AdminForm : Form
+    {
+        public AdminForm()
+        {
+            InitializeComponent();
+        }
+        private SqlDataAdapter adapter;
+        private DataSet dataSet;
+        STUDENT student = new STUDENT();
+        SqlConnection connection = new SqlConnection(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=QLSVDB;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
+        private void RefreshDataGridView()
+        {
+            try
+            {
+                connection.Open();
+                string query = "SELECT * FROM UnAprrovestd ORDER BY lname";
+                adapter = new SqlDataAdapter(query, connection);
+                dataSet = new DataSet();
+                adapter.Fill(dataSet, "UnAprrovestd");
+                dataGridView1.DataSource = dataSet.Tables["UnAprrovestd"];
+                TotalStudentlbl.Text = (" Total Students: " + (dataGridView1.Rows.Count));
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+        private void AdminApproveStudent_Load(object sender, EventArgs e)
+        {
+            // TODO: This line of code loads data into the 'myDBDataSet5.UnAprrovestd' table. You can move, or remove it, as needed.
+            dataGridView1.DataSource = student.getUpprove();
+
+        }
+        private void ApproveStudent(int studentId)
+        {
+
+            try
+            {
+                connection.Open();
+                string updateQuery = "INSERT INTO std (Id, fname, lname, bdate, gender, phone, address, picture, email) " +
+                     "SELECT Id, fname, lname, bdate, gender, phone, address, picture, email " +
+                     $"FROM UnAprrovestd WHERE Id = {studentId}";
+                SqlCommand updateCommand = new SqlCommand(updateQuery, connection);
+                updateCommand.ExecuteNonQuery();
+
+                string deleteQuery = $"DELETE FROM UnAprrovestd WHERE Id = {studentId}";
+                SqlCommand deleteCommand = new SqlCommand(deleteQuery, connection);
+                deleteCommand.ExecuteNonQuery();
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+        }
+        private void RejectStudent(int studentId)
+        {
+            try
+            {
+                connection.Open();
+                string deleteQuery = $"DELETE FROM UnAprrovestd WHERE Id = {studentId}";
+                SqlCommand deleteCommand = new SqlCommand(deleteQuery, connection);
+                deleteCommand.ExecuteNonQuery();
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+
+        }
+        private void ApproveButton_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count > 0)
+            {
+
+                //int selectedStudentId = (int)dataGridView1.SelectedRows[0].Cells[0].Value;
+                //  ApproveStudent(selectedStudentId);
+                foreach (DataGridViewRow row in dataGridView1.SelectedRows)
+                {
+                    // Lấy ID của sinh viên từ cột "stt" trong hàng
+                    if (row.Cells[0].Value != null)
+                    {
+                        int selectedStudentId = (int)row.Cells[0].Value;
+                        ApproveStudent(selectedStudentId);
+                    }
+                }
+                RefreshDataGridView();
+
+            }
+            else
+            {
+                MessageBox.Show("Please select a student to approve.");
+            }
+
+
+        }
+
+        private void RejectButton_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count > 0)
+            {
+
+                //int selectedStudentId = (int)dataGridView1.SelectedRows[0].Cells[0].Value;
+                // RejectStudent(selectedStudentId);
+                foreach (DataGridViewRow row in dataGridView1.SelectedRows)
+                {
+                    // Lấy ID của sinh viên từ cột "stt" trong hàng
+                    if (row.Cells[0].Value != null)
+                    {
+                        int selectedStudentId = (int)row.Cells[0].Value;
+                        RejectStudent(selectedStudentId);
+                    }
+                }
+                RefreshDataGridView();
+
+            }
+            else
+            {
+                MessageBox.Show("Please select a student to reject.");
+            }
+        }
+
+        private void ButtonRefresh_Click(object sender, EventArgs e)
+        {
+            RefreshDataGridView();
+            searchtxt.Text = " ";
+            ChoiceBox.Text = " ";
+        }
+
+        private void AllAbtn_Click(object sender, EventArgs e)
+        {
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {
+                // Lấy ID của sinh viên từ cột "stt" trong hàng
+                if (row.Cells[0].Value != null)
+                {
+                    int studentId = (int)row.Cells[0].Value;
+                    ApproveStudent(studentId);
+                }
+            }
+
+            // Cập nhật DataGridView sau khi từ chối tất cả sinh viên
+            RefreshDataGridView();
+        }
+
+        private void AllRbtn_Click(object sender, EventArgs e)
+        {
+            // Lặp qua tất cả các hàng trong DataGridView
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {
+                // Lấy ID của sinh viên từ cột "stt" trong hàng
+                if (row.Cells[0].Value != null)
+                {
+                    int studentId = (int)row.Cells[0].Value;
+                    RejectStudent(studentId);
+                }
+            }
+
+            // Cập nhật DataGridView sau khi từ chối tất cả sinh viên
+            RefreshDataGridView();
+        }
+
+        public void fillGrid(SqlCommand command)
+        {
+            STUDENT student = new STUDENT();
+            dataGridView1.ReadOnly = true;
+            DataGridViewImageColumn picCol = new DataGridViewImageColumn();
+            dataGridView1.RowTemplate.Height = 80;
+            dataGridView1.DataSource = student.getStudents(command);
+            picCol = (DataGridViewImageColumn)dataGridView1.Columns[7];
+            picCol.ImageLayout = DataGridViewImageCellLayout.Stretch;
+            dataGridView1.AllowUserToAddRows = false;
+
+            // dem sinh vien
+            TotalStudentlbl.Text = (" Total Students: " + dataGridView1.Rows.Count);
+        }
+        private void searchButton_Click(object sender, EventArgs e)
+        {
+            string selectedAttribute = ChoiceBox.SelectedItem.ToString().Trim(); // Lấy thuộc tính được chọn từ ComboBox
+            string searchValue = searchtxt.Text;
+
+            string query = ""; // Câu lệnh SQL sẽ được xây dựng dựa trên thuộc tính được chọn
+
+            // Xây dựng câu lệnh SQL dựa trên thuộc tính được chọn
+            switch (selectedAttribute)
+            {
+                case "MSSV":
+                    query = "SELECT * FROM UnAprrovestd WHERE Id LIKE '%" + searchValue + "%'";
+                    break;
+                case "FName":
+                    query = "SELECT * FROM UnAprrovestd WHERE fname LIKE '%" + searchValue + "%'";
+                    break;
+                case "LName":
+                    query = "SELECT * FROM UnAprrovestd WHERE lname LIKE '%" + searchValue + "%'";
+                    break;
+                case "Address":
+                    query = "SELECT * FROM UnAprrovestd WHERE address LIKE '%" + searchValue + "%'";
+                    break;
+                case "Phone":
+                    query = "SELECT * FROM UnAprrovestd WHERE phone LIKE '%" + searchValue + "%'";
+                    break;
+                case "Email":
+                    query = "SELECT * FROM UnAprrovestd WHERE email LIKE '%" + searchValue + "%'";
+                    break;
+                default:
+                    // Xử lý trường hợp không xác định
+                    break;
+            }
+
+            SqlCommand command = new SqlCommand(query);
+            fillGrid(command);
+        }
+
+        private void dataGridView1_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            DetailStudentInformation detailStudent = new DetailStudentInformation();
+            // Truyền dữ liệu từ DataGridView vào các Label trong DetailStudentInformation
+            detailStudent.mssvlbl.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+            string fullName = dataGridView1.CurrentRow.Cells[1].Value.ToString() + " " + dataGridView1.CurrentRow.Cells[2].Value.ToString();
+            detailStudent.tenlbl.Text = fullName;
+            DateTime ngaySinh = (DateTime)dataGridView1.CurrentRow.Cells[3].Value;
+            detailStudent.ngaysinhlbl.Text = ngaySinh.ToString("dd/MM/yyyy");
+            //detailStudent.ngaysinhlbl.Text = dataGridView1.CurrentRow.Cells[3].Value.ToString();
+
+            string gender = dataGridView1.CurrentRow.Cells[4].Value.ToString().Trim();
+            detailStudent.gioitinhlbl.Text = gender;
+
+            detailStudent.phonelbl.Text = dataGridView1.CurrentRow.Cells[5].Value.ToString();
+            detailStudent.addresslbl.Text = dataGridView1.CurrentRow.Cells[6].Value.ToString();
+            detailStudent.emaillbl.Text = dataGridView1.CurrentRow.Cells[8].Value.ToString();
+            // Xử lý hình ảnh
+            if (dataGridView1.CurrentRow.Cells[7].Value != DBNull.Value)
+            {
+                byte[] pic = (byte[])dataGridView1.CurrentRow.Cells[7].Value;
+                MemoryStream pictureStream = new MemoryStream(pic);
+                detailStudent.pictureBox2.Image = Image.FromStream(pictureStream);
+            }
+            else
+            {
+                // Nếu không có hình ảnh, bạn có thể đặt một hình ảnh mặc định hoặc xóa PictureBox
+                detailStudent.pictureBox2.Image = null; // Hoặc đặt một hình ảnh mặc định
+            }
+
+            // Hiển thị Form DetailStudentInformation
+            detailStudent.Show();
+        }
+
+        private void TotalStudentlbl_Click(object sender, EventArgs e)
+        {
+
+        }
+    }
+}
