@@ -74,20 +74,12 @@ namespace QLSV
 
         private void btn_Print_Click(object sender, EventArgs e)
         {
-            //if (dataGridView1.SelectedRows.Count > 0)
-            //{
-            //    PrintDialog printDialog = new PrintDialog();
-            //    printDialog.Document = printDoc; // Use printDoc here
-            //    if (printDialog.ShowDialog() == DialogResult.OK)
-            //    {
-            //        printDoc.Print(); // And here
-            //    }
-            //}
-            //else
-            //{
-            //    MessageBox.Show("Please select a student to print.");
-            //}
-            SqlCommand command = new SqlCommand("select * from std", mydb.getConnection);
+            string studentId = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+
+
+            SqlCommand command = new SqlCommand("select * from std where id = @id ", mydb.getConnection);
+            command.Parameters.AddWithValue("@id", studentId);
+
             dataGridView2.DataSource = student.getStudents(command);
 
             PrintOneStudent printOneStudent = new PrintOneStudent();
