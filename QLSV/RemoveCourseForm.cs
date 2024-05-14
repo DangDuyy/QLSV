@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -18,40 +19,34 @@ namespace QLSV
             InitializeComponent();
         }
 
-        COURSE course = new COURSE();   
-        private void btn_Remove_Click(object sender, EventArgs e)
+        COURSE course = new COURSE();
+        private void btnRemovecourse_Click(object sender, EventArgs e)
         {
-            //delete student 
-            try
+            string courseid = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+
+            if ((MessageBox.Show("Do you want to delete course", "Delete course", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes))
             {
-                string courseID = txt_Remove.Text;
-                //display a confirmation message before the delete
-                if ((MessageBox.Show("Are You Sure You Want To Delete This Student", "Delete Student", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes))
+                if (course.deleteCourse(courseid))
                 {
-                    if (course.deleteCourse(courseID))
-                    {
-                        MessageBox.Show("Course Deleted", "Course Student", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-                    else
-                    {
-                        MessageBox.Show("Course Deleted", "Course Student", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
+                    MessageBox.Show("course deleted", "Remove course", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    dataGridView1.DataSource = course.getAllCourses();
+                }
+                else
+                {
+                    MessageBox.Show("course not deleted", "Remove course", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
             }
-            catch
-            {
-                MessageBox.Show("Please Enter A Valid ID", "Course Student", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-        }
 
-        private void txt_Remove_KeyPress(object sender, KeyPressEventArgs e)
+        }
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
-            {
-                e.Handled = true;
-            }
+
         }
 
-
+        private void RemoveCourseForm_Load(object sender, EventArgs e)
+        {
+            SqlCommand sqlCommand = new SqlCommand("SELECT id as MãMH, label as TênMH, period as Tiết, description as MôTả, semester as HọcKi FROM course");
+            dataGridView1.DataSource = course.getCourses(sqlCommand);
+        }
     }
 }

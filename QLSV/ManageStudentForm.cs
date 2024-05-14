@@ -19,8 +19,6 @@ namespace QLSV
         public ManageStudentForm()
         {
             InitializeComponent();
-            dataGridView1.CellClick += new DataGridViewCellEventHandler(dataGridView1_CellClick);
-
         }
         MY_DB mydb = new MY_DB();
         STUDENT student = new STUDENT();
@@ -41,7 +39,7 @@ namespace QLSV
             mydb.closeConnection();
             //populate the datagridview with students data
 
-            fillGrid(new SqlCommand("select * from std "));
+            fillGrid(new SqlCommand("select id as MaSV, fname as 'Họ SV', lname as 'Tên SV', bdate as DOB, gender as 'Giới tính', phone as SDT, address as 'Địa chỉ',picture as 'Ảnh đại diện', email as Email, course as 'Mã Học Phần' from std "));
 
         }
         public void fillGrid(SqlCommand command)
@@ -61,22 +59,6 @@ namespace QLSV
         }
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            // Kiểm tra xem cell được nhấp có phải là cell ở cột 9 hay không
-            if (e.ColumnIndex == 9)
-            {
-                string courses = dataGridView1.CurrentRow.Cells[9].Value.ToString();
-
-                DetailCourseList detailCourseListForm = new DetailCourseList(courses);
-                detailCourseListForm.Show(this);
-
-                // Mở form mới
-                
-            }
-        }
-
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
             txt_ID.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString();
             txt_fname.Text = dataGridView1.CurrentRow.Cells[1].Value.ToString();
             txt_lname.Text = dataGridView1.CurrentRow.Cells[2].Value.ToString();
@@ -88,6 +70,8 @@ namespace QLSV
             }
             else
             {
+                // Xử lý nếu giá trị không hợp lệ
+                // Ví dụ: Hiển thị một giá trị mặc định hoặc báo lỗi
                 DateTimePicker1.Value = DateTime.Now; // Giá trị mặc định
             }
 
@@ -99,6 +83,7 @@ namespace QLSV
             {
                 RadioButtonMale.Checked = true;
             }
+
 
             TextBoxPhone.Text = dataGridView1.CurrentRow.Cells[5].Value.ToString();
             TextBoxAddress.Text = dataGridView1.CurrentRow.Cells[6].Value.ToString();
@@ -125,7 +110,19 @@ namespace QLSV
                 // Nếu giá trị hình ảnh là null, xóa hình ảnh hiển thị trên PictureBox
                 PictureBoxStudentImage.Image = null;
             }
+            // Kiểm tra xem cell được nhấp có phải là cell ở cột 9 hay không
+            if (e.ColumnIndex == 9)
+            {
+                string courses = dataGridView1.CurrentRow.Cells[9].Value.ToString();
+
+                DetailCourseList detailCourseListForm = new DetailCourseList(courses);
+                detailCourseListForm.Show(this);
+
+                // Mở form mới
+                
+            }
         }
+
 
         private void buttonReset_Click(object sender, EventArgs e)
         {
@@ -178,19 +175,21 @@ namespace QLSV
             string fname = txt_fname.Text;
             string lname = txt_lname.Text;
             DateTime bdate = DateTimePicker1.Value.Date;
-            string phone = TextBoxPhone.Text;
+            string phone = TextBoxPhone.Text.Trim();
             string adrs = TextBoxAddress.Text;
             string gender = "Male";
+            string pattern = @"\d";
             string email = txtEmail.Text;
-            int flag = 0;
-            string pattern = @"^[a-zA-Z\u00C0-\u017F\s]*$";
-            if (Regex.IsMatch(fname, pattern) && Regex.IsMatch(lname, pattern))
+            if (!phone.All(char.IsDigit))
             {
-                flag = 1;
+                MessageBox.Show("Phone number must contain only digits", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
-            else
+
+            if (Regex.IsMatch(fname, pattern) || Regex.IsMatch(lname, pattern))
             {
                 MessageBox.Show("First name and last name must be letters", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
 
             if (RadioButtonFemale.Checked)
@@ -206,7 +205,7 @@ namespace QLSV
             {
                 MessageBox.Show("The Student Age Must Be Between 10 and 100 year", "Invalid Birth Date", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            else if (verif() && flag == 1)
+            else if (verif())
             {
                 PictureBoxStudentImage.Image.Save(pic, PictureBoxStudentImage.Image.RawFormat);
                 if (student.insertStudentEmail(id, fname, lname, bdate, gender, phone, adrs, pic, email))
@@ -234,20 +233,21 @@ namespace QLSV
             string fname = txt_fname.Text;
             string lname = txt_lname.Text;
             DateTime bdate = DateTimePicker1.Value.Date;
-            string phone = TextBoxPhone.Text;
+            string phone = TextBoxPhone.Text.Trim();
             string adrs = TextBoxAddress.Text;
             string gender = "Male";
-            int flag = 0;
-            string pattern = @"^[a-zA-Z\u00C0-\u017F\s]*$";
-            if (Regex.IsMatch(fname, pattern) && Regex.IsMatch(lname, pattern))
+            string pattern = @"\d";
+            if (!phone.All(char.IsDigit))
             {
-                flag = 1;
-            }
-            else
-            {
-                MessageBox.Show("First name and last name must be letters", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Phone number must contain only digits", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
 
+            if (Regex.IsMatch(fname, pattern) || Regex.IsMatch(lname, pattern))
+            {
+                MessageBox.Show("First name and last name must be letters", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
 
             if (RadioButtonFemale.Checked)
             {
@@ -264,7 +264,7 @@ namespace QLSV
             {
                 MessageBox.Show("The Student Age Must Be Between 10 and 100 year", "Invalid Birth Date", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            else if (verif() && flag == 1)
+            else if (verif())
             {
                 try
                 {

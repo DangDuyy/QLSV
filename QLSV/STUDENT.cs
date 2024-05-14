@@ -103,7 +103,7 @@ namespace QLSV
             }
         }
         //update student
-        public bool updateStudent(int id, string lname, string fname, DateTime bdate, string gender, string phone, string address, MemoryStream picture)
+        public bool updateStudent(int id, string fname, string lname, DateTime bdate, string gender, string phone, string address, MemoryStream picture)
         {
             SqlCommand cmd = new SqlCommand("UPDATE std SET fname=@fn, lname=@ln, bdate=@bdt, gender=@gdr, phone=@phn, ad" +
                 "dress=@adrs, picture=@pic WHERE id=@ID", mydb.getConnection);

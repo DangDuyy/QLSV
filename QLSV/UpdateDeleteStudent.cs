@@ -132,18 +132,20 @@ namespace QLSV
             string fname = TextBoxFname.Text;
             string lname = TextBoxLname.Text;
             DateTime bdate = DateTimePicker1.Value;
-            string phone = TextBoxPhone.Text;
+            string phone = TextBoxPhone.Text.Trim();
             string adrs = TextBoxAddress.Text;
             string gender;
-            int flag = 0;
-            string pattern = @"^[a-zA-Z\u00C0-\u017F\s]*$";
-            if (Regex.IsMatch(fname, pattern) && Regex.IsMatch(lname, pattern))
+            string pattern = @"\d";
+            if (!phone.All(char.IsDigit))
             {
-                flag = 1;
+                MessageBox.Show("Phone number must contain only digits", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
-            else
+
+            if (Regex.IsMatch(fname, pattern) || Regex.IsMatch(lname, pattern))
             {
                 MessageBox.Show("First name and last name must be letters", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
 
             if (RadioButtonFemale.Checked)
@@ -161,7 +163,7 @@ namespace QLSV
             {
                 MessageBox.Show("The Student Age must be between 10 and 100 years", "Birth date error ", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            else if (verif() && flag == 1)
+            else if (verif())
             {
                 try
                 {

@@ -18,13 +18,21 @@ namespace QLSV
         {
             InitializeComponent();
         }
+        public ManageScoreForm(string selectedData)
+        {
+            InitializeComponent();
+            SelectedData = selectedData;
+            txt_TeacherID.Text = SelectedData;
+        }
+
         SCORE score = new SCORE();
         STUDENT student = new STUDENT();
         COURSE course = new COURSE();
         string data = "score";
         private void ManageScoreForm_Load(object sender, EventArgs e)
         {
-           
+            txt_TeacherID.Text = SelectedData;
+
             dataGridView1.DataSource = score.getScore();
             ComboBoxScore.DataSource = course.getAllCourses();
             ComboBoxScore.DisplayMember = "label";
@@ -32,26 +40,33 @@ namespace QLSV
 
             ComboBoxScore.SelectedItem = null;
         }
+        public string SelectedData { get; set; }
+
 
         private void buttonShowStudent_Click(object sender, EventArgs e)
         {
             data = "student";
-            SqlCommand command = new SqlCommand("select id, fname, lname, bdate from std ");
+            SqlCommand command = new SqlCommand("select id as MaSV, fname as HoSV, lname as TenSV, bdate as DOB from std ");
             dataGridView1.DataSource = student.getStudents(command);
         }
          public void fillCombo(int index)
         {
             ComboBoxScore.DataSource = course.getAllCourses();
             ComboBoxScore.DisplayMember = "label";
-            ComboBoxScore.ValueMember = "label";
+            if (flag ==0 ) ComboBoxScore.ValueMember = "id";
+            else ComboBoxScore.ValueMember = "label";
 
             ComboBoxScore.SelectedIndex = index;
         }
         private void buttonShowScore_Click(object sender, EventArgs e)
         {
             data = "score";
-            dataGridView1.DataSource = score.getScore();
+            if (txt_TeacherID.Text == "")
+                dataGridView1.DataSource = score.getScore();
+            else
+                dataGridView1.DataSource = score.getScoreWithTeacherID(Convert.ToInt32(SelectedData));
         }
+
 
         private void dataGridView1_Click(object sender, EventArgs e)
         {
@@ -67,43 +82,12 @@ namespace QLSV
             {
                 textBoxStudentID.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString();
                 fillCombo(ComboBoxScore.SelectedIndex);
-                
+                ComboBoxScore.Text = dataGridView1.CurrentRow.Cells[4].Value.ToString();
+                TextBoxScore.Text = dataGridView1.CurrentRow.Cells[5].Value.ToString(); 
+                TextBoxDiscription.Text = dataGridView1.CurrentRow.Cells[6].Value.ToString();
             }
 
 
-        }
-
-        private void ButtonEdit_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                int studentid = Convert.ToInt32(textBoxStudentID.Text);
-                int courseId = Convert.ToInt32(ComboBoxScore.SelectedValue);
-                double scoreValue = Convert.ToDouble(TextBoxScore.Text);
-                string description = TextBoxDiscription.Text;
-
-                if (!score.ScoreExists(studentid, courseId))
-                {
-                    if (score.insertScore(studentid, courseId, scoreValue, description))
-                    {
-                        MessageBox.Show("Student Score Insert", "Add Score", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-                    else
-                    {
-                        MessageBox.Show("Student Score  not Insert", "Add Score", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("The Score for thí course are already set", "Add Score", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-
-                }
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Add Score", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
         }
 
         private void btnRemoveScore_Click(object sender, EventArgs e)
@@ -135,6 +119,7 @@ namespace QLSV
         {
 
         }
+        int flag = 0;
 
         private void ComboBoxScore_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -142,23 +127,56 @@ namespace QLSV
             {
                 // Check if SelectedValue is not null before calling ToString
                 int studentid = Convert.ToInt32(textBoxStudentID.Text);
-           
+                int courseId = Convert.ToInt32(ComboBoxScore.SelectedValue);
+                Console.WriteLine("Course ID: " + courseId);
                 string label = ComboBoxScore.SelectedValue?.ToString().Trim();
                 TextBoxScore.Text = "";
                 TextBoxDiscription.Text = "";
                 if (label != null)
                 {
-                    DataTable table = score.getScoreBySIDandCourseID(studentid, label);
+                    DataTable table = score.getScoreBySIDandCourse_ID(studentid, courseId);
                     TextBoxScore.Text = table.Rows[0]["student_score"].ToString();
                     TextBoxDiscription.Text = table.Rows[0]["description"].ToString();
                 }
-                
             }
             catch
             {
                 // Handle exceptions if necessary
             }
            
+        }
+
+        private void btn_Add_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int studentid = Convert.ToInt32(textBoxStudentID.Text);
+                int courseId = Convert.ToInt32(ComboBoxScore.SelectedValue);
+                double scoreValue = Convert.ToDouble(TextBoxScore.Text);
+                string description = TextBoxDiscription.Text;
+
+                if (!score.ScoreExists(studentid, courseId))
+                {
+                    if (score.insertScore(studentid, courseId, scoreValue, description))
+                    {
+                        MessageBox.Show("Student Score Insert", "Add Score", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Student Score  not Insert", "Add Score", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("The Score for this course are already set", "Add Score", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Add Score", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

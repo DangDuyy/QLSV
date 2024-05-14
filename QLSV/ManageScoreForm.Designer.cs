@@ -42,6 +42,8 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.buttonShowStudent = new System.Windows.Forms.Button();
             this.buttonShowScore = new System.Windows.Forms.Button();
+            this.txt_TeacherID = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -76,6 +78,7 @@
             this.btn_Add.TabIndex = 31;
             this.btn_Add.Text = "Add";
             this.btn_Add.UseVisualStyleBackColor = true;
+            this.btn_Add.Click += new System.EventHandler(this.btn_Add_Click);
             // 
             // ComboBoxScore
             // 
@@ -161,13 +164,13 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(458, 401);
+            this.dataGridView1.Size = new System.Drawing.Size(773, 407);
             this.dataGridView1.TabIndex = 42;
             this.dataGridView1.Click += new System.EventHandler(this.dataGridView1_Click);
             // 
             // buttonShowStudent
             // 
-            this.buttonShowStudent.Location = new System.Drawing.Point(746, 20);
+            this.buttonShowStudent.Location = new System.Drawing.Point(824, 20);
             this.buttonShowStudent.Name = "buttonShowStudent";
             this.buttonShowStudent.Size = new System.Drawing.Size(130, 37);
             this.buttonShowStudent.TabIndex = 43;
@@ -177,7 +180,7 @@
             // 
             // buttonShowScore
             // 
-            this.buttonShowScore.Location = new System.Drawing.Point(905, 20);
+            this.buttonShowScore.Location = new System.Drawing.Point(1059, 20);
             this.buttonShowScore.Name = "buttonShowScore";
             this.buttonShowScore.Size = new System.Drawing.Size(101, 37);
             this.buttonShowScore.TabIndex = 44;
@@ -185,11 +188,31 @@
             this.buttonShowScore.UseVisualStyleBackColor = true;
             this.buttonShowScore.Click += new System.EventHandler(this.buttonShowScore_Click);
             // 
+            // txt_TeacherID
+            // 
+            this.txt_TeacherID.Location = new System.Drawing.Point(1048, 504);
+            this.txt_TeacherID.Name = "txt_TeacherID";
+            this.txt_TeacherID.Size = new System.Drawing.Size(209, 22);
+            this.txt_TeacherID.TabIndex = 45;
+            this.txt_TeacherID.Visible = false;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(968, 507);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(74, 16);
+            this.label2.TabIndex = 46;
+            this.label2.Text = "Teacher ID";
+            this.label2.Visible = false;
+            // 
             // ManageScoreForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1081, 665);
+            this.ClientSize = new System.Drawing.Size(1396, 645);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.txt_TeacherID);
             this.Controls.Add(this.buttonShowScore);
             this.Controls.Add(this.buttonShowStudent);
             this.Controls.Add(this.dataGridView1);
@@ -228,5 +251,7 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button buttonShowStudent;
         private System.Windows.Forms.Button buttonShowScore;
+        private System.Windows.Forms.TextBox txt_TeacherID;
+        private System.Windows.Forms.Label label2;
     }
 }

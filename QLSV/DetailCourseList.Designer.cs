@@ -36,6 +36,7 @@
             this.period = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.description = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MãGVHD = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -58,6 +59,7 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -65,7 +67,8 @@
             this.label,
             this.period,
             this.description,
-            this.Column1});
+            this.Column1,
+            this.MãGVHD});
             this.dataGridView1.Location = new System.Drawing.Point(54, 112);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
@@ -108,6 +111,13 @@
             this.Column1.MinimumWidth = 6;
             this.Column1.Name = "Column1";
             // 
+            // MãGVHD
+            // 
+            this.MãGVHD.DataPropertyName = "teacher_id";
+            this.MãGVHD.HeaderText = "Mã GVHD";
+            this.MãGVHD.MinimumWidth = 6;
+            this.MãGVHD.Name = "MãGVHD";
+            // 
             // DetailCourseList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -135,5 +145,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn period;
         private System.Windows.Forms.DataGridViewTextBoxColumn description;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MãGVHD;
     }
 }

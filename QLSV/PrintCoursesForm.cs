@@ -89,16 +89,73 @@ namespace QLSV
         // Xử lý sự kiện PrintPage
         private void PrintDocument_PrintPage(object sender, PrintPageEventArgs e)
         {
-            // Lấy kích thước của DataGridView
-            int width = dataGridView1.Width;
-            int height = dataGridView1.Height;
 
-            // Tạo một bitmap với kích thước của DataGridView
-            Bitmap bm = new Bitmap(width, height);
-            dataGridView1.DrawToBitmap(bm, new Rectangle(0, 0, width, height));
+            // Set the font and color
+            Font font = new Font("Arial", 12, FontStyle.Bold);
+            Font titlefont = new Font("Arial", 18, FontStyle.Bold);
 
-            // In ảnh của DataGridView
-            e.Graphics.DrawImage(bm, 0, 0);
+            SolidBrush brush = new SolidBrush(Color.Black);
+
+            // Set the text to print
+            string university = "TRƯỜNG ĐẠI HỌC SƯ PHẠM KỸ THUẬT THÀNH PHỐ HỒ CHÍ MINH";
+            string courseList = "DANH SÁCH MÔN HỌC";
+
+            // Calculate the center of the page
+            float pageCenter = e.PageBounds.Width / 2;
+
+            // Calculate the starting point of the strings
+            float universityStart = pageCenter - (e.Graphics.MeasureString(university, font).Width / 2);
+            float courseListStart = pageCenter - (e.Graphics.MeasureString(courseList, font).Width / 2);
+
+            // Load the logo
+            string filePath = @"C:\fit23-hk2\WINDOW\bt\QLSV\QLSV\QLSV\Resources\FIT2.jpg";
+            Image logo = Image.FromFile(filePath);
+
+            // Draw the logo at the top left
+            e.Graphics.DrawImage(logo, 10, 10, logo.Width, logo.Height);
+
+            // Set the signature text
+            string signature = "Signature: ____________________";
+
+            // Calculate the starting point of the signature
+            float signatureStartX = e.PageBounds.Width - e.Graphics.MeasureString(signature, font).Width;
+            float signatureStartY = e.PageBounds.Height - font.Height;
+
+            // Draw the signature at the bottom right
+            e.Graphics.DrawString(signature, font, brush, signatureStartX, signatureStartY);
+
+
+            // Draw the text onto the Graphics object
+            e.Graphics.DrawString(university, font, brush, universityStart, 20);
+            e.Graphics.DrawString(courseList, font, brush, courseListStart, 120);
+
+            // Starting point for the DataGridView
+            int startX = (e.PageBounds.Width - dataGridView1.Width) / 2;
+            int startY = 220;
+
+            // Draw column headers
+            for (int i = 0; i < dataGridView1.Columns.Count; i++)
+            {
+                e.Graphics.FillRectangle(Brushes.LightGray, startX, startY, dataGridView1.Columns[i].Width, dataGridView1.Rows[0].Height);
+                e.Graphics.DrawRectangle(Pens.Black, startX, startY, dataGridView1.Columns[i].Width, dataGridView1.Rows[0].Height);
+                e.Graphics.DrawString(dataGridView1.Columns[i].HeaderText, dataGridView1.Font, Brushes.Black, startX, startY);
+                startX += dataGridView1.Columns[i].Width;
+            }
+
+            // Draw rows
+            startY += dataGridView1.Rows[0].Height;
+            for (int i = 0; i < dataGridView1.Rows.Count; i++)
+            {
+                startX = (e.PageBounds.Width - dataGridView1.Width) / 2;
+                for (int j = 0; j < dataGridView1.Columns.Count; j++)
+                {
+                    e.Graphics.FillRectangle(Brushes.White, startX, startY, dataGridView1.Columns[j].Width, dataGridView1.Rows[i].Height);
+                    e.Graphics.DrawRectangle(Pens.Black, startX, startY, dataGridView1.Columns[j].Width, dataGridView1.Rows[i].Height);
+                    e.Graphics.DrawString(Convert.ToString(dataGridView1.Rows[i].Cells[j].Value), dataGridView1.Font, Brushes.Black, startX, startY);
+                    startX += dataGridView1.Columns[j].Width;
+                }
+                startY += dataGridView1.Rows[i].Height;
+            }
         }
     }
 }

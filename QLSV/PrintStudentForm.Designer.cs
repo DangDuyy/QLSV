@@ -1,4 +1,6 @@
-﻿namespace QLSV
+﻿using System.Windows.Forms;
+
+namespace QLSV
 {
     partial class PrintStudentForm
     {
@@ -35,9 +37,12 @@
             this.btn_Save = new System.Windows.Forms.Button();
             this.btn_Print = new System.Windows.Forms.Button();
             this.courseTableAdapter = new QLSV.QLSVDBDataSetCourseTableAdapters.CourseTableAdapter();
+            this.button1 = new System.Windows.Forms.Button();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.courseBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.qLSVDBDataSetCourse)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -49,6 +54,7 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(683, 368);
             this.dataGridView1.TabIndex = 2;
             // 
@@ -64,7 +70,7 @@
             // 
             // btn_Save
             // 
-            this.btn_Save.Location = new System.Drawing.Point(224, 400);
+            this.btn_Save.Location = new System.Drawing.Point(136, 400);
             this.btn_Save.Name = "btn_Save";
             this.btn_Save.Size = new System.Drawing.Size(101, 38);
             this.btn_Save.TabIndex = 3;
@@ -74,11 +80,11 @@
             // 
             // btn_Print
             // 
-            this.btn_Print.Location = new System.Drawing.Point(454, 400);
+            this.btn_Print.Location = new System.Drawing.Point(337, 400);
             this.btn_Print.Name = "btn_Print";
             this.btn_Print.Size = new System.Drawing.Size(101, 38);
             this.btn_Print.TabIndex = 4;
-            this.btn_Print.Text = "Printer";
+            this.btn_Print.Text = "Print All";
             this.btn_Print.UseVisualStyleBackColor = true;
             this.btn_Print.Click += new System.EventHandler(this.btn_Print_Click);
             // 
@@ -86,11 +92,35 @@
             // 
             this.courseTableAdapter.ClearBeforeFill = true;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(539, 400);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(128, 38);
+            this.button1.TabIndex = 5;
+            this.button1.Text = "Print only Student";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.btn_PrintSelected_Click);
+            // 
+            // dataGridView2
+            // 
+            this.dataGridView2.AllowUserToAddRows = false;
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Location = new System.Drawing.Point(757, 400);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.RowHeadersWidth = 51;
+            this.dataGridView2.RowTemplate.Height = 24;
+            this.dataGridView2.Size = new System.Drawing.Size(31, 21);
+            this.dataGridView2.TabIndex = 6;
+            this.dataGridView2.Visible = false;
+            // 
             // PrintStudentForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.dataGridView2);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.btn_Save);
             this.Controls.Add(this.btn_Print);
@@ -100,6 +130,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.courseBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.qLSVDBDataSetCourse)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -112,5 +143,7 @@
         private System.Windows.Forms.Button btn_Save;
         private System.Windows.Forms.Button btn_Print;
         private QLSVDBDataSetCourseTableAdapters.CourseTableAdapter courseTableAdapter;
+        private System.Windows.Forms.Button button1;
+        private DataGridView dataGridView2;
     }
 }

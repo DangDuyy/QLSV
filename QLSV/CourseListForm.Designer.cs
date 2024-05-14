@@ -31,13 +31,13 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.txt_Semester = new System.Windows.Forms.TextBox();
-            this.txt_Course = new System.Windows.Forms.TextBox();
-            this.btn_Print = new System.Windows.Forms.Button();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txt_Semester = new System.Windows.Forms.TextBox();
+            this.txt_Course = new System.Windows.Forms.TextBox();
+            this.btn_Print = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -62,7 +62,9 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
@@ -75,31 +77,6 @@
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(732, 341);
             this.dataGridView1.TabIndex = 3;
-            // 
-            // txt_Semester
-            // 
-            this.txt_Semester.Location = new System.Drawing.Point(515, 21);
-            this.txt_Semester.Name = "txt_Semester";
-            this.txt_Semester.Size = new System.Drawing.Size(134, 22);
-            this.txt_Semester.TabIndex = 4;
-            this.txt_Semester.TextChanged += new System.EventHandler(this.txt_Sem_TextChanged);
-            // 
-            // txt_Course
-            // 
-            this.txt_Course.Location = new System.Drawing.Point(250, 23);
-            this.txt_Course.Name = "txt_Course";
-            this.txt_Course.Size = new System.Drawing.Size(134, 22);
-            this.txt_Course.TabIndex = 5;
-            // 
-            // btn_Print
-            // 
-            this.btn_Print.Location = new System.Drawing.Point(352, 448);
-            this.btn_Print.Name = "btn_Print";
-            this.btn_Print.Size = new System.Drawing.Size(75, 23);
-            this.btn_Print.TabIndex = 6;
-            this.btn_Print.Text = "PRINT";
-            this.btn_Print.UseVisualStyleBackColor = true;
-            this.btn_Print.Click += new System.EventHandler(this.btn_Print_Click);
             // 
             // Column1
             // 
@@ -128,6 +105,31 @@
             this.Column4.HeaderText = "DOB";
             this.Column4.MinimumWidth = 6;
             this.Column4.Name = "Column4";
+            // 
+            // txt_Semester
+            // 
+            this.txt_Semester.Location = new System.Drawing.Point(515, 17);
+            this.txt_Semester.Name = "txt_Semester";
+            this.txt_Semester.Size = new System.Drawing.Size(134, 22);
+            this.txt_Semester.TabIndex = 4;
+            this.txt_Semester.TextChanged += new System.EventHandler(this.txt_Sem_TextChanged);
+            // 
+            // txt_Course
+            // 
+            this.txt_Course.Location = new System.Drawing.Point(250, 17);
+            this.txt_Course.Name = "txt_Course";
+            this.txt_Course.Size = new System.Drawing.Size(134, 22);
+            this.txt_Course.TabIndex = 5;
+            // 
+            // btn_Print
+            // 
+            this.btn_Print.Location = new System.Drawing.Point(352, 448);
+            this.btn_Print.Name = "btn_Print";
+            this.btn_Print.Size = new System.Drawing.Size(75, 23);
+            this.btn_Print.TabIndex = 6;
+            this.btn_Print.Text = "PRINT";
+            this.btn_Print.UseVisualStyleBackColor = true;
+            this.btn_Print.Click += new System.EventHandler(this.btn_Print_Click);
             // 
             // CourseListForm
             // 

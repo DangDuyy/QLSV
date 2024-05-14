@@ -120,7 +120,7 @@ namespace QLSV
 
         public DataTable getCourseBySemAndStudent_ID(int studentid, int sem)
         {
-            SqlCommand command = new SqlCommand("select course.label " +
+            SqlCommand command = new SqlCommand("select course.label as 'Tên MH' " +
                 "from course inner join score on score.course_id = CAST(course.id AS INT) inner join std on std.id = score.student_id " +
                 "where score.student_id = @sid and course.semester = @sem", myDB.getConnection);
             command.Parameters.Add("@sid", SqlDbType.Int).Value = studentid;
@@ -156,7 +156,7 @@ namespace QLSV
         //update student
         public bool updateCourse(string id, string label, int period, string description, int sem)
         {
-            SqlCommand cmd = new SqlCommand("UPDATE course SET label=@label, period=@period, description=@description semester=@semester WHERE id=@ID", myDB.getConnection);
+            SqlCommand cmd = new SqlCommand("UPDATE course SET label=@label, period=@period, description=@description, semester=@semester WHERE id=@ID", myDB.getConnection);
 
             cmd.Parameters.Add("@ID", SqlDbType.NVarChar).Value = id;
             cmd.Parameters.Add("@label", SqlDbType.VarChar).Value = label;
@@ -217,8 +217,17 @@ namespace QLSV
             adapter.Fill(table);
             return table;
         }
-        
 
+        public DataTable getCourseBySemesterandTeacherID(int teacherid, int sem)
+        {
+            SqlCommand command = new SqlCommand("select id as 'Mã MH',label as 'Tên MH',period as 'Số tiết', description as 'Mô tả' from course where teacher_id = @id and semester = @sem", myDB.getConnection);
+            command.Parameters.Add("@id", SqlDbType.Int).Value = teacherid;
+            command.Parameters.Add("@sem", SqlDbType.Int).Value = sem;
+            SqlDataAdapter adapter = new SqlDataAdapter(command);
+            DataTable table = new DataTable();
+            adapter.Fill(table);
+            return table;
+        }
 
     }
 }

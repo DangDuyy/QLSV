@@ -26,7 +26,7 @@ namespace QLSV
             ComboBoxScore.DisplayMember = "label";
             ComboBoxScore.ValueMember = "Id";
 
-            SqlCommand command = new SqlCommand("select id, fname, lname from std");
+            SqlCommand command = new SqlCommand("select id as MaSV, fname as HoSV, lname as TenSV, bdate as DOB from std ");
             dataGridView1.DataSource = student.getStudents(command);
 
         }
@@ -136,7 +136,7 @@ namespace QLSV
                 }
                 else
                 {
-                    MessageBox.Show("The Score for thí course are already set", "Add Score", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("The Score for this course are already set", "Add Score", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
                 }
 

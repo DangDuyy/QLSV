@@ -28,204 +28,95 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.emaillbl = new System.Windows.Forms.Label();
-            this.phonelbl = new System.Windows.Forms.Label();
-            this.addresslbl = new System.Windows.Forms.Label();
-            this.gioitinhlbl = new System.Windows.Forms.Label();
-            this.ngaysinhlbl = new System.Windows.Forms.Label();
-            this.tenlbl = new System.Windows.Forms.Label();
-            this.mssvlbl = new System.Windows.Forms.Label();
             this.picturelbl = new System.Windows.Forms.Label();
-            this.email = new System.Windows.Forms.Label();
             this.address = new System.Windows.Forms.Label();
-            this.phone = new System.Windows.Forms.Label();
-            this.gioitinh = new System.Windows.Forms.Label();
+            this.lbUser = new System.Windows.Forms.Label();
             this.mssv = new System.Windows.Forms.Label();
-            this.lblTen = new System.Windows.Forms.Label();
+            this.lbHo = new System.Windows.Forms.Label();
             this.TitleText = new System.Windows.Forms.Label();
             this.lblnotice = new System.Windows.Forms.Label();
-            this.ngaysinh = new System.Windows.Forms.Label();
+            this.lbTen = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.accountLogin = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.loginPicture = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.txt_id = new System.Windows.Forms.TextBox();
+            this.txt_fname = new System.Windows.Forms.TextBox();
+            this.txt_lname = new System.Windows.Forms.TextBox();
+            this.txt_username = new System.Windows.Forms.TextBox();
+            this.txt_pass = new System.Windows.Forms.TextBox();
+            this.ButtonRemoveStudent = new System.Windows.Forms.Button();
+            this.ButtonEditStudent = new System.Windows.Forms.Button();
+            this.ButtonUploadImage = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.loginPicture)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
-            // 
-            // emaillbl
-            // 
-            this.emaillbl.AutoSize = true;
-            this.emaillbl.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.emaillbl.ForeColor = System.Drawing.Color.Black;
-            this.emaillbl.Location = new System.Drawing.Point(453, 530);
-            this.emaillbl.Name = "emaillbl";
-            this.emaillbl.Size = new System.Drawing.Size(47, 20);
-            this.emaillbl.TabIndex = 61;
-            this.emaillbl.Text = "email";
-            this.emaillbl.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            // 
-            // phonelbl
-            // 
-            this.phonelbl.AutoSize = true;
-            this.phonelbl.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.phonelbl.ForeColor = System.Drawing.Color.Black;
-            this.phonelbl.Location = new System.Drawing.Point(177, 533);
-            this.phonelbl.Name = "phonelbl";
-            this.phonelbl.Size = new System.Drawing.Size(95, 20);
-            this.phonelbl.TabIndex = 60;
-            this.phonelbl.Text = "SoDienThoai";
-            this.phonelbl.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            // 
-            // addresslbl
-            // 
-            this.addresslbl.AutoSize = true;
-            this.addresslbl.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.addresslbl.ForeColor = System.Drawing.Color.Black;
-            this.addresslbl.Location = new System.Drawing.Point(150, 469);
-            this.addresslbl.Name = "addresslbl";
-            this.addresslbl.Size = new System.Drawing.Size(75, 20);
-            this.addresslbl.TabIndex = 59;
-            this.addresslbl.Text = "QueQuan";
-            this.addresslbl.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            // 
-            // gioitinhlbl
-            // 
-            this.gioitinhlbl.AutoSize = true;
-            this.gioitinhlbl.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.gioitinhlbl.ForeColor = System.Drawing.Color.Black;
-            this.gioitinhlbl.Location = new System.Drawing.Point(136, 409);
-            this.gioitinhlbl.Name = "gioitinhlbl";
-            this.gioitinhlbl.Size = new System.Drawing.Size(62, 20);
-            this.gioitinhlbl.TabIndex = 58;
-            this.gioitinhlbl.Text = "Gioitinh";
-            this.gioitinhlbl.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            // 
-            // ngaysinhlbl
-            // 
-            this.ngaysinhlbl.AutoSize = true;
-            this.ngaysinhlbl.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.ngaysinhlbl.ForeColor = System.Drawing.Color.Black;
-            this.ngaysinhlbl.Location = new System.Drawing.Point(150, 346);
-            this.ngaysinhlbl.Name = "ngaysinhlbl";
-            this.ngaysinhlbl.Size = new System.Drawing.Size(75, 20);
-            this.ngaysinhlbl.TabIndex = 57;
-            this.ngaysinhlbl.Text = "Ngaysinh";
-            this.ngaysinhlbl.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            // 
-            // tenlbl
-            // 
-            this.tenlbl.AutoSize = true;
-            this.tenlbl.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.tenlbl.ForeColor = System.Drawing.Color.Black;
-            this.tenlbl.Location = new System.Drawing.Point(161, 287);
-            this.tenlbl.Name = "tenlbl";
-            this.tenlbl.Size = new System.Drawing.Size(34, 20);
-            this.tenlbl.TabIndex = 56;
-            this.tenlbl.Text = "Ten";
-            this.tenlbl.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            // 
-            // mssvlbl
-            // 
-            this.mssvlbl.AutoSize = true;
-            this.mssvlbl.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.mssvlbl.ForeColor = System.Drawing.Color.Black;
-            this.mssvlbl.Location = new System.Drawing.Point(193, 223);
-            this.mssvlbl.Name = "mssvlbl";
-            this.mssvlbl.Size = new System.Drawing.Size(48, 20);
-            this.mssvlbl.TabIndex = 55;
-            this.mssvlbl.Text = "MSSV";
-            this.mssvlbl.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             // 
             // picturelbl
             // 
             this.picturelbl.AutoSize = true;
             this.picturelbl.Font = new System.Drawing.Font("Segoe UI", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.picturelbl.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.picturelbl.Location = new System.Drawing.Point(356, 223);
+            this.picturelbl.Location = new System.Drawing.Point(416, 265);
             this.picturelbl.Name = "picturelbl";
             this.picturelbl.Size = new System.Drawing.Size(67, 23);
             this.picturelbl.TabIndex = 54;
             this.picturelbl.Text = "Ảnh SV";
-            // 
-            // email
-            // 
-            this.email.AutoSize = true;
-            this.email.Font = new System.Drawing.Font("Segoe UI", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.email.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.email.Location = new System.Drawing.Point(359, 530);
-            this.email.Name = "email";
-            this.email.Size = new System.Drawing.Size(64, 23);
-            this.email.TabIndex = 53;
-            this.email.Text = "Email: ";
             // 
             // address
             // 
             this.address.AutoSize = true;
             this.address.Font = new System.Drawing.Font("Segoe UI", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.address.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.address.Location = new System.Drawing.Point(42, 467);
+            this.address.Location = new System.Drawing.Point(90, 509);
             this.address.Name = "address";
-            this.address.Size = new System.Drawing.Size(105, 23);
+            this.address.Size = new System.Drawing.Size(96, 23);
             this.address.TabIndex = 52;
-            this.address.Text = "Quê Quán : ";
+            this.address.Text = "Mật khẩu :";
             // 
-            // phone
+            // lbUser
             // 
-            this.phone.AutoSize = true;
-            this.phone.Font = new System.Drawing.Font("Segoe UI", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.phone.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.phone.Location = new System.Drawing.Point(42, 530);
-            this.phone.Name = "phone";
-            this.phone.Size = new System.Drawing.Size(129, 23);
-            this.phone.TabIndex = 51;
-            this.phone.Text = "Số điện thoại : ";
-            // 
-            // gioitinh
-            // 
-            this.gioitinh.AutoSize = true;
-            this.gioitinh.Font = new System.Drawing.Font("Segoe UI", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.gioitinh.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.gioitinh.Location = new System.Drawing.Point(42, 406);
-            this.gioitinh.Name = "gioitinh";
-            this.gioitinh.Size = new System.Drawing.Size(88, 23);
-            this.gioitinh.TabIndex = 50;
-            this.gioitinh.Text = "Giới tính :";
+            this.lbUser.AutoSize = true;
+            this.lbUser.Font = new System.Drawing.Font("Segoe UI", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.lbUser.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.lbUser.Location = new System.Drawing.Point(90, 448);
+            this.lbUser.Name = "lbUser";
+            this.lbUser.Size = new System.Drawing.Size(139, 23);
+            this.lbUser.TabIndex = 50;
+            this.lbUser.Text = "Tên đăng nhập :";
             // 
             // mssv
             // 
             this.mssv.AutoSize = true;
             this.mssv.Font = new System.Drawing.Font("Segoe UI", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.mssv.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.mssv.Location = new System.Drawing.Point(42, 220);
+            this.mssv.Location = new System.Drawing.Point(90, 262);
             this.mssv.Name = "mssv";
-            this.mssv.Size = new System.Drawing.Size(153, 23);
+            this.mssv.Size = new System.Drawing.Size(160, 23);
             this.mssv.TabIndex = 48;
-            this.mssv.Text = "Mã Số Sinh Viên : ";
+            this.mssv.Text = "Mã Số Tài Khoản : ";
             // 
-            // lblTen
+            // lbHo
             // 
-            this.lblTen.AutoSize = true;
-            this.lblTen.Font = new System.Drawing.Font("Segoe UI", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.lblTen.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.lblTen.Location = new System.Drawing.Point(42, 284);
-            this.lblTen.Name = "lblTen";
-            this.lblTen.Size = new System.Drawing.Size(108, 23);
-            this.lblTen.TabIndex = 47;
-            this.lblTen.Text = "Họ Và Tên : ";
+            this.lbHo.AutoSize = true;
+            this.lbHo.Font = new System.Drawing.Font("Segoe UI", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.lbHo.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.lbHo.Location = new System.Drawing.Point(90, 326);
+            this.lbHo.Name = "lbHo";
+            this.lbHo.Size = new System.Drawing.Size(43, 23);
+            this.lbHo.TabIndex = 47;
+            this.lbHo.Text = "Họ :";
             // 
             // TitleText
             // 
             this.TitleText.Font = new System.Drawing.Font("Segoe UI Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.TitleText.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.TitleText.Location = new System.Drawing.Point(89, 138);
+            this.TitleText.Location = new System.Drawing.Point(72, 148);
             this.TitleText.Name = "TitleText";
-            this.TitleText.Size = new System.Drawing.Size(249, 40);
+            this.TitleText.Size = new System.Drawing.Size(243, 43);
             this.TitleText.TabIndex = 44;
-            this.TitleText.Text = "Thông Tin Học Sinh";
+            this.TitleText.Text = "Thông Tin Tài Khoản";
             this.TitleText.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             // 
             // lblnotice
@@ -240,16 +131,16 @@
             this.lblnotice.Text = "Địa Chỉ : Số 1 Võ Văn Ngân, Quận Thủ Đức, TP HCM - Điện thoại: 037221233\r\n       " +
     "      Email : p.cthssv@hcmute.edu.vn - Website: www.hcmute.edu.vn";
             // 
-            // ngaysinh
+            // lbTen
             // 
-            this.ngaysinh.AutoSize = true;
-            this.ngaysinh.Font = new System.Drawing.Font("Segoe UI", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.ngaysinh.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.ngaysinh.Location = new System.Drawing.Point(42, 343);
-            this.ngaysinh.Name = "ngaysinh";
-            this.ngaysinh.Size = new System.Drawing.Size(102, 23);
-            this.ngaysinh.TabIndex = 49;
-            this.ngaysinh.Text = "Ngày Sinh :";
+            this.lbTen.AutoSize = true;
+            this.lbTen.Font = new System.Drawing.Font("Segoe UI", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.lbTen.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.lbTen.Location = new System.Drawing.Point(90, 385);
+            this.lbTen.Name = "lbTen";
+            this.lbTen.Size = new System.Drawing.Size(49, 23);
+            this.lbTen.TabIndex = 49;
+            this.lbTen.Text = "Tên :";
             // 
             // panel1
             // 
@@ -261,6 +152,17 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(801, 100);
             this.panel1.TabIndex = 43;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.DodgerBlue;
+            this.pictureBox1.Image = global::QLSV.Properties.Resources.FIT;
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(92, 54);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 24;
+            this.pictureBox1.TabStop = false;
             // 
             // accountLogin
             // 
@@ -276,92 +178,149 @@
             // pictureBox2
             // 
             this.pictureBox2.BackColor = System.Drawing.Color.White;
-            this.pictureBox2.Location = new System.Drawing.Point(457, 223);
+            this.pictureBox2.Location = new System.Drawing.Point(505, 265);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(269, 270);
+            this.pictureBox2.Size = new System.Drawing.Size(269, 238);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 46;
             this.pictureBox2.TabStop = false;
             // 
-            // loginPicture
+            // txt_id
             // 
-            this.loginPicture.BackColor = System.Drawing.Color.White;
-            this.loginPicture.Location = new System.Drawing.Point(32, 138);
-            this.loginPicture.Name = "loginPicture";
-            this.loginPicture.Size = new System.Drawing.Size(50, 40);
-            this.loginPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.loginPicture.TabIndex = 45;
-            this.loginPicture.TabStop = false;
+            this.txt_id.Location = new System.Drawing.Point(257, 263);
+            this.txt_id.Multiline = true;
+            this.txt_id.Name = "txt_id";
+            this.txt_id.Size = new System.Drawing.Size(136, 22);
+            this.txt_id.TabIndex = 55;
             // 
-            // pictureBox1
+            // txt_fname
             // 
-            this.pictureBox1.BackColor = System.Drawing.Color.DodgerBlue;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(92, 54);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 24;
-            this.pictureBox1.TabStop = false;
+            this.txt_fname.Location = new System.Drawing.Point(257, 328);
+            this.txt_fname.Multiline = true;
+            this.txt_fname.Name = "txt_fname";
+            this.txt_fname.Size = new System.Drawing.Size(136, 22);
+            this.txt_fname.TabIndex = 56;
+            // 
+            // txt_lname
+            // 
+            this.txt_lname.Location = new System.Drawing.Point(257, 385);
+            this.txt_lname.Multiline = true;
+            this.txt_lname.Name = "txt_lname";
+            this.txt_lname.Size = new System.Drawing.Size(136, 22);
+            this.txt_lname.TabIndex = 57;
+            // 
+            // txt_username
+            // 
+            this.txt_username.Location = new System.Drawing.Point(257, 448);
+            this.txt_username.Multiline = true;
+            this.txt_username.Name = "txt_username";
+            this.txt_username.Size = new System.Drawing.Size(136, 22);
+            this.txt_username.TabIndex = 58;
+            // 
+            // txt_pass
+            // 
+            this.txt_pass.Location = new System.Drawing.Point(258, 510);
+            this.txt_pass.Multiline = true;
+            this.txt_pass.Name = "txt_pass";
+            this.txt_pass.Size = new System.Drawing.Size(136, 22);
+            this.txt_pass.TabIndex = 59;
+            // 
+            // ButtonRemoveStudent
+            // 
+            this.ButtonRemoveStudent.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(131)))), ((int)(((byte)(215)))));
+            this.ButtonRemoveStudent.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ButtonRemoveStudent.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ButtonRemoveStudent.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ButtonRemoveStudent.ForeColor = System.Drawing.Color.White;
+            this.ButtonRemoveStudent.Location = new System.Drawing.Point(505, 595);
+            this.ButtonRemoveStudent.Margin = new System.Windows.Forms.Padding(4);
+            this.ButtonRemoveStudent.Name = "ButtonRemoveStudent";
+            this.ButtonRemoveStudent.Size = new System.Drawing.Size(213, 49);
+            this.ButtonRemoveStudent.TabIndex = 61;
+            this.ButtonRemoveStudent.Text = "Remove";
+            this.ButtonRemoveStudent.UseVisualStyleBackColor = false;
+            this.ButtonRemoveStudent.Click += new System.EventHandler(this.ButtonRemoveStudent_Click);
+            // 
+            // ButtonEditStudent
+            // 
+            this.ButtonEditStudent.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(38)))), ((int)(((byte)(19)))));
+            this.ButtonEditStudent.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ButtonEditStudent.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ButtonEditStudent.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ButtonEditStudent.ForeColor = System.Drawing.Color.White;
+            this.ButtonEditStudent.Location = new System.Drawing.Point(180, 595);
+            this.ButtonEditStudent.Margin = new System.Windows.Forms.Padding(4);
+            this.ButtonEditStudent.Name = "ButtonEditStudent";
+            this.ButtonEditStudent.Size = new System.Drawing.Size(213, 49);
+            this.ButtonEditStudent.TabIndex = 60;
+            this.ButtonEditStudent.Text = "Edit";
+            this.ButtonEditStudent.UseVisualStyleBackColor = false;
+            this.ButtonEditStudent.Click += new System.EventHandler(this.ButtonEditStudent_Click);
+            // 
+            // ButtonUploadImage
+            // 
+            this.ButtonUploadImage.Location = new System.Drawing.Point(505, 510);
+            this.ButtonUploadImage.Margin = new System.Windows.Forms.Padding(4);
+            this.ButtonUploadImage.Name = "ButtonUploadImage";
+            this.ButtonUploadImage.Size = new System.Drawing.Size(269, 28);
+            this.ButtonUploadImage.TabIndex = 63;
+            this.ButtonUploadImage.Text = "upload image";
+            this.ButtonUploadImage.UseVisualStyleBackColor = true;
+            this.ButtonUploadImage.Click += new System.EventHandler(this.ButtonUploadImage_Click);
             // 
             // DetailStudentInformation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(839, 655);
-            this.Controls.Add(this.emaillbl);
-            this.Controls.Add(this.phonelbl);
-            this.Controls.Add(this.addresslbl);
-            this.Controls.Add(this.gioitinhlbl);
-            this.Controls.Add(this.ngaysinhlbl);
-            this.Controls.Add(this.tenlbl);
-            this.Controls.Add(this.mssvlbl);
+            this.ClientSize = new System.Drawing.Size(847, 699);
+            this.Controls.Add(this.ButtonUploadImage);
+            this.Controls.Add(this.ButtonRemoveStudent);
+            this.Controls.Add(this.ButtonEditStudent);
+            this.Controls.Add(this.txt_pass);
+            this.Controls.Add(this.txt_username);
+            this.Controls.Add(this.txt_lname);
+            this.Controls.Add(this.txt_fname);
+            this.Controls.Add(this.txt_id);
             this.Controls.Add(this.picturelbl);
-            this.Controls.Add(this.email);
             this.Controls.Add(this.address);
-            this.Controls.Add(this.phone);
-            this.Controls.Add(this.gioitinh);
+            this.Controls.Add(this.lbUser);
             this.Controls.Add(this.mssv);
-            this.Controls.Add(this.lblTen);
+            this.Controls.Add(this.lbHo);
             this.Controls.Add(this.pictureBox2);
-            this.Controls.Add(this.loginPicture);
             this.Controls.Add(this.TitleText);
-            this.Controls.Add(this.ngaysinh);
+            this.Controls.Add(this.lbTen);
             this.Controls.Add(this.panel1);
             this.Name = "DetailStudentInformation";
             this.Text = "DetailStudentInformation";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.loginPicture)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        public System.Windows.Forms.Label emaillbl;
-        public System.Windows.Forms.Label phonelbl;
-        public System.Windows.Forms.Label addresslbl;
-        public System.Windows.Forms.Label gioitinhlbl;
-        public System.Windows.Forms.Label ngaysinhlbl;
-        public System.Windows.Forms.Label tenlbl;
-        public System.Windows.Forms.Label mssvlbl;
         private System.Windows.Forms.Label picturelbl;
-        private System.Windows.Forms.Label email;
         private System.Windows.Forms.Label address;
-        private System.Windows.Forms.Label phone;
-        private System.Windows.Forms.Label gioitinh;
+        private System.Windows.Forms.Label lbUser;
         private System.Windows.Forms.Label mssv;
-        private System.Windows.Forms.Label lblTen;
+        private System.Windows.Forms.Label lbHo;
         public System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.PictureBox loginPicture;
         private System.Windows.Forms.Label TitleText;
         private System.Windows.Forms.Label lblnotice;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label ngaysinh;
+        private System.Windows.Forms.Label lbTen;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label accountLogin;
+        internal System.Windows.Forms.Button ButtonEditStudent;
+        internal System.Windows.Forms.Button ButtonUploadImage;
+        public System.Windows.Forms.TextBox txt_id;
+        public System.Windows.Forms.TextBox txt_fname;
+        public System.Windows.Forms.TextBox txt_lname;
+        public System.Windows.Forms.TextBox txt_username;
+        public System.Windows.Forms.TextBox txt_pass;
+        public System.Windows.Forms.Button ButtonRemoveStudent;
     }
 }

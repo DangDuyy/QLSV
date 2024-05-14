@@ -64,7 +64,6 @@
             this.reSultToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aVGByScoreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.finalResultToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.aDMINToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip2 = new System.Windows.Forms.MenuStrip();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -78,8 +77,7 @@
             this.sTUDENTToolStripMenuItem,
             this.cOURSEToolStripMenuItem,
             this.sCOREToolStripMenuItem,
-            this.reSultToolStripMenuItem,
-            this.aDMINToolStripMenuItem});
+            this.reSultToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 24);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(735, 35);
@@ -367,6 +365,7 @@
             this.aVGByScoreToolStripMenuItem.Name = "aVGByScoreToolStripMenuItem";
             this.aVGByScoreToolStripMenuItem.Size = new System.Drawing.Size(323, 32);
             this.aVGByScoreToolStripMenuItem.Text = "AVG Result by Score";
+            this.aVGByScoreToolStripMenuItem.Click += new System.EventHandler(this.aVGByScoreToolStripMenuItem_Click);
             // 
             // finalResultToolStripMenuItem
             // 
@@ -374,13 +373,7 @@
             this.finalResultToolStripMenuItem.Name = "finalResultToolStripMenuItem";
             this.finalResultToolStripMenuItem.Size = new System.Drawing.Size(323, 32);
             this.finalResultToolStripMenuItem.Text = "Statics Result";
-            // 
-            // aDMINToolStripMenuItem
-            // 
-            this.aDMINToolStripMenuItem.Name = "aDMINToolStripMenuItem";
-            this.aDMINToolStripMenuItem.Size = new System.Drawing.Size(100, 31);
-            this.aDMINToolStripMenuItem.Text = "ADMIN";
-            this.aDMINToolStripMenuItem.Click += new System.EventHandler(this.aDMINToolStripMenuItem_Click);
+            this.finalResultToolStripMenuItem.Click += new System.EventHandler(this.finalResultToolStripMenuItem_Click);
             // 
             // menuStrip2
             // 
@@ -454,6 +447,5 @@
         private System.Windows.Forms.ToolStripMenuItem reSultToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aVGByScoreToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem finalResultToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem aDMINToolStripMenuItem;
     }
 }

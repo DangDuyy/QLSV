@@ -41,8 +41,13 @@
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.btt_Register = new System.Windows.Forms.Button();
             this.ForgetPass = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.radioHR = new System.Windows.Forms.RadioButton();
+            this.radioStudent = new System.Windows.Forms.RadioButton();
+            this.radioAdmin = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label2
@@ -72,7 +77,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label4.Location = new System.Drawing.Point(275, 75);
+            this.label4.Location = new System.Drawing.Point(276, 35);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(101, 32);
             this.label4.TabIndex = 2;
@@ -86,6 +91,7 @@
             this.TextBoxUsername.Name = "TextBoxUsername";
             this.TextBoxUsername.Size = new System.Drawing.Size(232, 29);
             this.TextBoxUsername.TabIndex = 3;
+            this.TextBoxUsername.Text = "duy";
             this.toolTip1.SetToolTip(this.TextBoxUsername, "Nhap ky tu");
             // 
             // TextBoxPassword
@@ -97,6 +103,7 @@
             this.TextBoxPassword.PasswordChar = '*';
             this.TextBoxPassword.Size = new System.Drawing.Size(232, 34);
             this.TextBoxPassword.TabIndex = 3;
+            this.TextBoxPassword.Text = "123";
             this.toolTip1.SetToolTip(this.TextBoxPassword, "Nhap pass");
             // 
             // btt_Login
@@ -126,7 +133,7 @@
             // 
             this.pictureBox1.ErrorImage = global::QLSV.Properties.Resources.FIT;
             this.pictureBox1.Image = global::QLSV.Properties.Resources.FIT;
-            this.pictureBox1.Location = new System.Drawing.Point(50, 53);
+            this.pictureBox1.Location = new System.Drawing.Point(47, 12);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(110, 78);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -168,6 +175,54 @@
             this.ForgetPass.Text = "Forget Password";
             this.ForgetPass.Click += new System.EventHandler(this.ForgetPass_Click);
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.radioAdmin);
+            this.groupBox1.Controls.Add(this.radioHR);
+            this.groupBox1.Controls.Add(this.radioStudent);
+            this.groupBox1.Location = new System.Drawing.Point(47, 104);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
+            this.groupBox1.Size = new System.Drawing.Size(389, 54);
+            this.groupBox1.TabIndex = 12;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "You Are";
+            // 
+            // radioHR
+            // 
+            this.radioHR.AutoSize = true;
+            this.radioHR.Checked = true;
+            this.radioHR.Location = new System.Drawing.Point(170, 19);
+            this.radioHR.Margin = new System.Windows.Forms.Padding(2);
+            this.radioHR.Name = "radioHR";
+            this.radioHR.Size = new System.Drawing.Size(48, 20);
+            this.radioHR.TabIndex = 1;
+            this.radioHR.Text = "HR";
+            this.radioHR.UseVisualStyleBackColor = true;
+            // 
+            // radioStudent
+            // 
+            this.radioStudent.AutoSize = true;
+            this.radioStudent.Location = new System.Drawing.Point(64, 19);
+            this.radioStudent.Margin = new System.Windows.Forms.Padding(2);
+            this.radioStudent.Name = "radioStudent";
+            this.radioStudent.Size = new System.Drawing.Size(73, 20);
+            this.radioStudent.TabIndex = 0;
+            this.radioStudent.Text = "Student";
+            this.radioStudent.UseVisualStyleBackColor = true;
+            // 
+            // radioAdmin
+            // 
+            this.radioAdmin.AutoSize = true;
+            this.radioAdmin.Location = new System.Drawing.Point(257, 19);
+            this.radioAdmin.Margin = new System.Windows.Forms.Padding(2);
+            this.radioAdmin.Name = "radioAdmin";
+            this.radioAdmin.Size = new System.Drawing.Size(66, 20);
+            this.radioAdmin.TabIndex = 2;
+            this.radioAdmin.Text = "Admin";
+            this.radioAdmin.UseVisualStyleBackColor = true;
+            // 
             // Login_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -175,6 +230,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(483, 450);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.ForgetPass);
             this.Controls.Add(this.btt_Register);
             this.Controls.Add(this.btt_Cancel);
@@ -191,6 +247,8 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -210,6 +268,10 @@
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.Button btt_Register;
         private System.Windows.Forms.Label ForgetPass;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.RadioButton radioHR;
+        private System.Windows.Forms.RadioButton radioStudent;
+        private System.Windows.Forms.RadioButton radioAdmin;
     }
 }
 

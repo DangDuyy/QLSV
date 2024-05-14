@@ -36,11 +36,38 @@
     <Reference Include="EPPlus, Version=4.5.2.1, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
       <HintPath>..\packages\EPPlus.4.5.2.1\lib\net40\EPPlus.dll</HintPath>
     </Reference>
+    <Reference Include="Guna.UI2, Version=2.0.4.6, Culture=neutral, PublicKeyToken=8b9d14aa5142e261, processorArchitecture=MSIL">
+      <HintPath>..\packages\Guna.UI2.WinForms.2.0.4.6\lib\net472\Guna.UI2.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1620.0\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1620.0\lib\net40\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Design, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1620.0\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1620.0\lib\net40\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WebDesign, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1620.0\lib\net40\Microsoft.ReportViewer.WebDesign.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WebForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1620.0\lib\net40\Microsoft.ReportViewer.WebForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
+    </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="System" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Management" />
     <Reference Include="System.Security" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -52,6 +79,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddContact.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddContact.Designer.cs">
+      <DependentUpon>AddContact.cs</DependentUpon>
+    </Compile>
     <Compile Include="AddCourse.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -96,17 +129,35 @@
     <Compile Include="CourseListForm.Designer.cs">
       <DependentUpon>CourseListForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="CourseListFormByTeacher.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CourseListFormByTeacher.Designer.cs">
+      <DependentUpon>CourseListFormByTeacher.cs</DependentUpon>
+    </Compile>
     <Compile Include="DetailCourseList.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="DetailCourseList.Designer.cs">
       <DependentUpon>DetailCourseList.cs</DependentUpon>
     </Compile>
+    <Compile Include="DetailCourseListByTeacher.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DetailCourseListByTeacher.Designer.cs">
+      <DependentUpon>DetailCourseListByTeacher.cs</DependentUpon>
+    </Compile>
     <Compile Include="DetailStudentInformation.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="DetailStudentInformation.Designer.cs">
       <DependentUpon>DetailStudentInformation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EditContact.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditContact.Designer.cs">
+      <DependentUpon>EditContact.cs</DependentUpon>
     </Compile>
     <Compile Include="EditCourseForm.cs">
       <SubType>Form</SubType>
@@ -150,6 +201,12 @@
     </Compile>
     <Compile Include="PrintCoursesForm.Designer.cs">
       <DependentUpon>PrintCoursesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PrintOneStudent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PrintOneStudent.Designer.cs">
+      <DependentUpon>PrintOneStudent.cs</DependentUpon>
     </Compile>
     <Compile Include="PrintStudentForm.cs">
       <SubType>Form</SubType>
@@ -218,11 +275,30 @@
       <DependentUpon>ResultForm.cs</DependentUpon>
     </Compile>
     <Compile Include="SCORE.cs" />
+    <Compile Include="SelectContact.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SelectContact.Designer.cs">
+      <DependentUpon>SelectContact.cs</DependentUpon>
+    </Compile>
     <Compile Include="SendCodeForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="SendCodeForm.Designer.cs">
       <DependentUpon>SendCodeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ShowFullList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ShowFullList.Designer.cs">
+      <DependentUpon>ShowFullList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SqlServerTypes\Loader.cs" />
+    <Compile Include="StaticResult.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StaticResult.Designer.cs">
+      <DependentUpon>StaticResult.cs</DependentUpon>
     </Compile>
     <Compile Include="STUDENT.cs" />
     <Compile Include="studentsListForm.cs">
@@ -237,6 +313,15 @@
     <Compile Include="UpdateDeleteStudent.Designer.cs">
       <DependentUpon>UpdateDeleteStudent.cs</DependentUpon>
     </Compile>
+    <Compile Include="Welcome.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Welcome.Designer.cs">
+      <DependentUpon>Welcome.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="AddContact.resx">
+      <DependentUpon>AddContact.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AddCourse.resx">
       <DependentUpon>AddCourse.cs</DependentUpon>
     </EmbeddedResource>
@@ -258,11 +343,20 @@
     <EmbeddedResource Include="CourseListForm.resx">
       <DependentUpon>CourseListForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CourseListFormByTeacher.resx">
+      <DependentUpon>CourseListFormByTeacher.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DetailCourseList.resx">
       <DependentUpon>DetailCourseList.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DetailCourseListByTeacher.resx">
+      <DependentUpon>DetailCourseListByTeacher.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DetailStudentInformation.resx">
       <DependentUpon>DetailStudentInformation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditContact.resx">
+      <DependentUpon>EditContact.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="EditCourseForm.resx">
       <DependentUpon>EditCourseForm.cs</DependentUpon>
@@ -284,6 +378,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PrintCoursesForm.resx">
       <DependentUpon>PrintCoursesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PrintOneStudent.resx">
+      <DependentUpon>PrintOneStudent.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PrintStudentForm.resx">
       <DependentUpon>PrintStudentForm.cs</DependentUpon>
@@ -313,11 +410,20 @@
     <EmbeddedResource Include="SendCodeForm.resx">
       <DependentUpon>SendCodeForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ShowFullList.resx">
+      <DependentUpon>ShowFullList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StaticResult.resx">
+      <DependentUpon>StaticResult.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="studentsListForm.resx">
       <DependentUpon>studentsListForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UpdateDeleteStudent.resx">
       <DependentUpon>UpdateDeleteStudent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Welcome.resx">
+      <DependentUpon>Welcome.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -335,6 +441,19 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="images\user.png" />
+    <Content Include="SqlServerTypes\readme.htm" />
+    <Content Include="SqlServerTypes\x64\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x64\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <None Include="QLSVDBDataSet.xsc">
       <DependentUpon>QLSVDBDataSet.xsd</DependentUpon>
     </None>

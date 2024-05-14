@@ -79,7 +79,7 @@ namespace QLSV
 
         private void removeScoreToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            RemoveCourseForm deleteStdF = new RemoveCourseForm();
+            RemoveScoreForm deleteStdF = new RemoveScoreForm();
             deleteStdF.Show(this);
         }
 
@@ -105,6 +105,18 @@ namespace QLSV
         {
             PrintStudentForm print = new PrintStudentForm();
             print.Show(this);
+        }
+
+        private void aVGByScoreToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ResultForm resultForm = new ResultForm();   
+            resultForm.Show(this);
+        }
+
+        private void finalResultToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            StaticResult staticResult = new StaticResult();
+            staticResult.Show(this);
         }
     }
 }

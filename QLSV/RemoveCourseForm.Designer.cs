@@ -29,20 +29,11 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.label1 = new System.Windows.Forms.Label();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.txt_Remove = new System.Windows.Forms.TextBox();
-            this.btn_Remove = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(54, 57);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(154, 16);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Remove The Course ID: ";
             // 
             // contextMenuStrip1
             // 
@@ -50,45 +41,45 @@
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
-            // txt_Remove
+            // button1
             // 
-            this.txt_Remove.Location = new System.Drawing.Point(251, 51);
-            this.txt_Remove.Name = "txt_Remove";
-            this.txt_Remove.Size = new System.Drawing.Size(200, 22);
-            this.txt_Remove.TabIndex = 2;
-            this.txt_Remove.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_Remove_KeyPress);
+            this.button1.Location = new System.Drawing.Point(8, 460);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 3;
+            this.button1.Text = "Remove";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.btnRemovecourse_Click);
             // 
-            // btn_Remove
+            // dataGridView1
             // 
-            this.btn_Remove.Location = new System.Drawing.Point(504, 51);
-            this.btn_Remove.Name = "btn_Remove";
-            this.btn_Remove.Size = new System.Drawing.Size(75, 23);
-            this.btn_Remove.TabIndex = 3;
-            this.btn_Remove.Text = "Remove";
-            this.btn_Remove.UseVisualStyleBackColor = true;
-            this.btn_Remove.Click += new System.EventHandler(this.btn_Remove_Click);
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(8, 78);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersWidth = 51;
+            this.dataGridView1.Size = new System.Drawing.Size(816, 338);
+            this.dataGridView1.TabIndex = 2;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // RemoveCourseForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.PaleTurquoise;
-            this.ClientSize = new System.Drawing.Size(739, 138);
-            this.Controls.Add(this.btn_Remove);
-            this.Controls.Add(this.txt_Remove);
-            this.Controls.Add(this.label1);
+            this.ClientSize = new System.Drawing.Size(836, 564);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.dataGridView1);
             this.Name = "RemoveCourseForm";
             this.Text = "RemoveCourseForm";
+            this.Load += new System.EventHandler(this.RemoveCourseForm_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
-        private System.Windows.Forms.TextBox txt_Remove;
-        private System.Windows.Forms.Button btn_Remove;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }
